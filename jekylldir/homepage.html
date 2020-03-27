@@ -26,5 +26,38 @@ permalink: /
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque harum cum minima quis, ullam hic facere quidem? Harum amet et voluptatum expedita explicabo, debitis voluptas? Aspernatur, eum. Deserunt, ratione, sapiente!
     </p>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit inventore enim modi iure placeat dolor quidem numquam, deserunt provident. Commodi iste dolores aut! Quod ut voluptatem perferendis voluptatum, repudiandae voluptates.</p>
+
+    <section class="bigtable">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>State</th>
+                    <th>Population</th>
+                    <th>Households</th>
+
+                </tr>
+            </thead>
+            {% for obj in site.data.census  %}
+                {% assign abbr = obj[0]  %}
+                {% assign state = obj[1]  %}
+
+                <tr>
+                    <td>
+                        {{ abbr }}
+                    </td>
+                    <td>
+                        {{ state.population }}
+                    </td>
+                    <td>
+                        {{ state.households }}
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+
+        </table>
+    </section>
+
 </div>

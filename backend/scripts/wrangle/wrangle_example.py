@@ -5,6 +5,7 @@ example
 """
 import csv
 from pathlib import Path
+import re
 from shutil import unpack_archive
 from sys import stderr, stdout
 
@@ -67,6 +68,8 @@ def census_wrangle():
 
     with open(srcpath) as src:
         for d in _mapfields(csv.DictReader(src), CENSUS_HEADERS):
+            d['population'] = re.match(r'^\d+', d['population']).group()
+            d['households'] = re.match(r'^\d+', d['households']).group()
             outdata.append(d)
     return (outdata, destpath)
 
