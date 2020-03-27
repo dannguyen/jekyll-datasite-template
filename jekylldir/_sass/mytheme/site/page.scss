@@ -1,0 +1,19 @@
+#page-body{
+    margin-bottom: 1em;
+}
+
+
+
+
+#page-meta{
+    margin-bottom: 2em;
+
+    .page-title{
+      @include font-size($display2-size);
+    }
+
+    .page-description{
+        @include font-size($font-size-lg);
+    }
+
+}
